@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -20,7 +25,7 @@ totals <- ddply(activity, c("date"),summarise,steps=sum(steps,na.rm=TRUE))
 hist(totals$steps,main="Number of steps per day",xlab="Total steps per day")
 ```
 
-![plot of chunk unnamed-chunk-3](./PA1_template_files/figure-html/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
 
 ```r
@@ -41,7 +46,7 @@ average <- ddply(activity, .(interval),summarise,mean=mean(steps,na.rm=TRUE))
 plot(average,type="l",xlab="5 min interval", ylab="Average no. of steps", main="Average Daily Activity Pattern")
 ```
 
-![plot of chunk unnamed-chunk-6](./PA1_template_files/figure-html/unnamed-chunk-6.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6.png) 
 
 
 ```r
@@ -71,7 +76,7 @@ noOfSteps <- ddply(activityWithMean,.(date),summarise,steps=sum(steps))
 hist(noOfSteps$steps,main="No. of steps per day",xlab="No. of steps")
 ```
 
-![plot of chunk unnamed-chunk-9](./PA1_template_files/figure-html/unnamed-chunk-9.png) 
+![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9.png) 
 
 
 ```r
@@ -102,7 +107,7 @@ library(lattice)
 xyplot(steps ~ interval | Weekend, data = activityWithMean,type="l",main="Activity at weekend or weekday")
 ```
 
-![plot of chunk unnamed-chunk-12](./PA1_template_files/figure-html/unnamed-chunk-12.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12.png) 
 
 
 ### There is generally more steps in total but also weekdays show more earlier in the day rather than later at the weekend.
